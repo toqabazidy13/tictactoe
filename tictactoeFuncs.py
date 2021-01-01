@@ -16,17 +16,11 @@ def getInput(letter,board):
         location = int(input("Where would you like to place your letter(pick in range 1-9):")) - 1
         if (location < 0 or location > 8 ) or board[location] != " " :
             print("Invalid Move! Location is already taken. Please try again.")
-            else :
+            else:
                 break
             board.pop(location)
             board.insert(location,letter)
             return board
-
-
-
-
-
-
 def checkDiags(board):
     if board[0] == board[4] == board[8] and board[0] != " ":
         return True, board[0]
@@ -67,7 +61,24 @@ def boardFull (board):
         return True
     else:
         return False
-
+def checkWin(board):
+    if(checkCols(board))[0]== True:
+        winner = checkCols(board)
+        print("Congratulations,{}'s won".format(winner[1]))
+         return 1
+    elif(checkRows(board))[0]== True:
+        winner = checkRows(board)
+        print("Congratulations,{}'s won".format(winner[1]))
+         return 1
+    elif(checkDiags(board))[0]== True:
+        winner = checkDiags(board)
+        print("Congratulations,{}'s won".format(winner[1]))
+         return 1
+    elif boardFull(board)==True:
+        print("It's draw")
+        return True
+    else
+       return False
 
 
 
