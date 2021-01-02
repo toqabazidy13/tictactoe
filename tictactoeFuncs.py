@@ -83,3 +83,37 @@ def checkWin(board):
 
 
 
+
+def Welcome(): 
+    print("Welcome to Tic-Tac-Toe.\nYour goal is to get 3 in a row.\nyou will either pick X or O. X will go first.")
+    players = int(input("Do you wish to play against a (1)computer, or with (2)Players? "))
+    return players
+
+#prints the welcome screen
+def Welcome(): 
+    print("Welcome to Tic-Tac-Toe.\nYour goal is to get 3 in a row.\nyou will either pick X or O. X will go first.")
+    players = int(input("Do you wish to play against a (1)computer, or with (2)Players? "))
+    return players
+
+
+# provides the board that shows 1-9 options 
+def createBoard():
+    board = []
+    for i in range (9):
+        board.append(str(i+1))
+    return board  
+
+
+# prints the game board for every turn
+def printBoard(list):
+    for i in range (0,6,3):
+       print("",list[i],"|",list[i+1],"|",list[i+2])    
+       print("------------")
+    print("",list[6],"|",list[7],"|",list[8])
+
+
+
+# iterates the turn count
+def turnCount(count):
+    count += 1
+    return count
